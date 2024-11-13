@@ -27,7 +27,7 @@ applyWatermark.addEventListener('click', async function() {
     date = `${day}/${month}/${year}`;  // Reorganizar la fecha en "dÃ­a/mes/aÃ±o"
 
     // Convertir a minÃºsculas el texto de la marca de agua
-    const watermarkText = `VÃ¡lido para ${purpose} - ${date}`.toLowerCase();
+    const watermarkText = `Válido para ${purpose} - ${date}`.toLowerCase();
 
     // Obtener el archivo PDF del input
     const file = pdfInput.files[0];

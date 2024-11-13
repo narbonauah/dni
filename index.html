@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marca de agua en documentos PDF</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #2c3e50;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            color: #34495e;
+        }
+        h1 {
+            font-size: 26px;
+            color: #e74c3c;
+            margin-bottom: 25px;
+        }
+        input[type="file"],
+        input[type="date"],
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 2px solid #95a5a6;
+            border-radius: 6px;
+            background-color: #ecf0f1;
+        }
+        button {
+            padding: 12px 18px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #16a085;
+        }
+        #downloadLink {
+            text-decoration: none;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 12px;
+        }
+        #downloadLink:hover {
+            background-color: #2980b9;
+        }
+        #resetButton {
+            background-color: #e74c3c;
+        }
+        #resetButton:hover {
+            background-color: #c0392b;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 14px;
+            color: #bdc3c7;
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Marca de agua en documentos PDF</h1>
+
+        <input type="file" id="pdfInput" accept="application/pdf">
+        <input type="date" id="watermarkDate" placeholder="Fecha">
+        <label for="documentPurpose">Propósito del documento:</label>
+        <input type="text" id="documentPurpose" placeholder="Por ejemplo: Contrato" maxlength="50"><br><br>     
+        <button id="applyWatermark">Aplicar marca de agua</button>
+        <button id="resetButton">Limpiar formulario</button>
+
+        <a id="downloadLink" download="documento_con_marca_de_agua.pdf" style="display:none;">Descargar PDF</a>
+
+       
+    </div>
+
+    <script src="pdf-lib.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Script para poner la fecha actual por defecto en el campo de fecha
+        window.onload = function() {
+            let today = new Date().toISOString().split('T')[0]; // Obtiene la fecha de hoy en formato YYYY-MM-DD
+            document.getElementById('watermarkDate').value = today; // Asigna la fecha actual al campo de fecha
+        };
+    </script>
+</body>
+</html>
